@@ -1,15 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>red dot clicker</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>hello</h1>
-    <button type="button"
-onclick="document.getElementById('demo').innerHTML = Date()">
-Click me to display Date and Time.</button>
-<p id="demo"></p>
+    <button id="garbage-button">more garbage (cost: 20)</button>
+    <button id="g-button2">even more garbage (cost: 50)</button>
+    <button id="g-button3">even even more garbage (cost: 150)</button>
+    <button id="g-button4">too much garbage (cost: 450)</button>
+    <button id="g-button5">garbage zenith (cost: 900)</button>
+    <button id="g-button6">garbage singularity (cost: 2500)</button>
+    <button id="g-button7">jeff the garbage collector (cost: 5000)</button>
+    <button id="g-button8">jeff dad (cost: 11000)</button>
+    <button id="g-button9">jeff mom (cost: 150000)</button>
+    <div id="garbage-counter">garbages: 0</div>
+    <div id="button2-counter">even more garbages: 0</div>
+    <div id="button3-counter">even even more garbages: 0</div>
+    <div id="button4-counter">too much garbages: 0</div>
+    <div id="button5-counter">garbage zeniths: 0</div>
+    <div id="button6-counter">garbage singularity: 0</div>
+    <div id="button7-counter">jeff the garbage collector: 0</div>
+    <div id="button8-counter">jeff dad: 0</div>
+    <div id="button9-counter">jeff mom: 0</div>
+  <div class="container">
+    <div id="red-dot"></div>
+    <p>points: <span id="score">0</span></p>
+  </div>
+  <script src="index.js"></script>
 </body>
 </html>
