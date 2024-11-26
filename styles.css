@@ -1,0 +1,255 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    overflow: hidden; /* no scrollbar */
+  }
+  
+  .container {
+    text-align: center;
+  }
+  
+  #red-dot {
+    position: absolute; /* anywhere */
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border-radius: 50%;
+    margin: 20px auto;
+    cursor: pointer;
+  }
+  
+  p {
+    font-size: 24px;
+    margin-top: 10px;
+    color: #333;
+  }
+
+  #garbage-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #garbage-button:hover {
+    background-color: #45a049;
+  }
+
+#garbage-counter {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 16px;
+    color: #333;
+  }
+
+  #g-button2 {
+    position: fixed;
+    top: 70px;
+    left: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #g-button2:hover {
+    background-color: #45a049;
+  }
+
+#button2-counter {
+    position: fixed;
+    top: 30px;
+    right: 10px;
+    font-size: 16px;
+    color: #333;
+  }
+
+  #g-button3 {
+    position: fixed;
+    top: 120px;
+    left: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #g-button3:hover {
+    background-color: #45a049;
+  }
+
+#button3-counter {
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    font-size: 16px;
+    color: #333;
+  }
+
+  #g-button4 {
+    position: fixed;
+    top: 170px;
+    left: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #g-button4:hover {
+    background-color: #45a049;
+  }
+
+#button4-counter {
+    position: fixed;
+    top: 70px;
+    right: 10px;
+    font-size: 16px;
+    color: #333;
+  }
+
+  #g-button5 {
+    position: fixed;
+    top: 220px;
+    left: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #g-button5:hover {
+    background-color: #45a049;
+  }
+
+#button5-counter {
+    position: fixed;
+    top: 90px;
+    right: 10px;
+    font-size: 16px;
+    color: #333;
+  }
+
+  #g-button6 {
+    position: fixed;
+    top: 270px;
+    left: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #g-button6:hover {
+    background-color: #45a049;
+  }
+
+#button6-counter {
+    position: fixed;
+    top: 110px;
+    right: 10px;
+    font-size: 16px;
+    color: #333;
+  }
+
+  #g-button7 {
+    position: fixed;
+    top: 320px;
+    left: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #g-button7:hover {
+    background-color: #45a049;
+  }
+
+#button7-counter {
+    position: fixed;
+    top: 130px;
+    right: 10px;
+    font-size: 16px;
+    color: #333;
+  }
+
+  #g-button8 {
+    position: fixed;
+    top: 370px;
+    left: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #g-button8:hover {
+    background-color: #45a049;
+  }
+
+#button8-counter {
+    position: fixed;
+    top: 150px;
+    right: 10px;
+    font-size: 16px;
+    color: #333;
+  }
+
+  #g-button9 {
+    position: fixed;
+    top: 420px;
+    left: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #g-button9:hover {
+    background-color: #45a049;
+  }
+
+#button9-counter {
+    position: fixed;
+    top: 170px;
+    right: 10px;
+    font-size: 16px;
+    color: #333;
+  }
