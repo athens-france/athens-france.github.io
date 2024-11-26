@@ -205,7 +205,7 @@ evenbutton.addEventListener("click", () => {
       dadcounter.textContent = `jeff dads: ${jeffdad}`;
   
       dadcost = Math.floor(dadcost * 1.5 );
-      dadbutton.textContent = `jeff dad (cost: ${jeffcost})`;
+      dadbutton.textContent = `jeff dad (cost: ${dadcost})`;
   
   
       setInterval(() => {
