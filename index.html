@@ -1,34 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>red dot clicker</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Athens, France</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Javanese:wght@400;700&family=Cormorant+Garamond:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #020202;
+      --fg: #f2f2f2;
+      --line: #8e8e8e;
+      --soft: #cfcfcf;
+      --glow: #ffffff;
+    }
+
+    *{ box-sizing: border-box; }
+
+    body{
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: "Noto Sans Javanese", system-ui, sans-serif;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .wrap{
+      width: min(980px, 100%);
+    }
+
+    .title{
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(3rem, 10vw, 7rem);
+      font-weight: 500;
+      margin: 0 0 36px;
+      letter-spacing: 0.02em;
+      line-height: 1;
+      transition: text-shadow .25s ease, color .25s ease;
+      width: fit-content;
+    }
+
+    .title:hover{
+      color: #fff;
+      text-shadow:
+        0 0 8px rgba(255,255,255,.55),
+        0 0 16px rgba(255,255,255,.35),
+        0 0 28px rgba(255,255,255,.18);
+    }
+
+    .content{
+      display: grid;
+      grid-template-columns: minmax(240px, 420px) 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .art-box{
+      aspect-ratio: 1 / 1;
+      border: 1.5px solid var(--line);
+      position: relative;
+      overflow: hidden;
+      background: #050505;
+    }
+
+    .art{
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transform: scale(1.02);
+        transition: opacity .22s ease, transform .22s ease;
+        pointer-events: none;
+
+        /* center image container */
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        padding: 0; /* important: remove old padding */
+    }
+
+    .art.active{
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .art img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;   /* full image always visible */
+        object-position: center;
+        display: block;
+    }
+
+    .scribble{
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgba(255,255,255,.2);
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .scribble::before,
+    .scribble::after{
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border: 1px solid rgba(255,255,255,.14);
+      transform: rotate(-1.2deg);
+    }
+    .scribble::after{
+      inset: 18px;
+      transform: rotate(1.4deg);
+    }
+
+    .menu{
+      border-left: 1px solid rgba(255,255,255,.35);
+      padding-left: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-height: 360px;
+    }
+
+    .menu button{
+      background: transparent;
+      color: var(--soft);
+      border: none;
+      text-align: left;
+      padding: 0;
+      margin: 0;
+      font-family: "Noto Sans Javanese", sans-serif;
+      font-size: clamp(1.5rem, 4vw, 3rem);
+      line-height: 1.1;
+      cursor: pointer;
+      transition: color .2s ease, text-shadow .2s ease, transform .18s ease;
+    }
+
+    .menu button:hover,
+    .menu button:focus-visible{
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255,255,255,.35);
+      transform: translateX(2px);
+      outline: none;
+    }
+
+    .hint{
+      margin-top: auto;
+      color: #9d9d9d;
+      font-size: 0.9rem;
+      opacity: .8;
+    }
+
+    @media (max-width: 760px){
+      .content{
+        grid-template-columns: 1fr;
+      }
+      .menu{
+        border-left: none;
+        border-top: 1px solid rgba(255,255,255,.35);
+        padding-left: 0;
+        padding-top: 18px;
+        min-height: unset;
+      }
+    }
+  </style>
 </head>
 <body>
-    <button id="garbage-button">more garbage (cost: 20)</button>
-    <button id="g-button2">even more garbage (cost: 50)</button>
-    <button id="g-button3">even even more garbage (cost: 150)</button>
-    <button id="g-button4">too much garbage (cost: 450)</button>
-    <button id="g-button5">garbage zenith (cost: 900)</button>
-    <button id="g-button6">garbage singularity (cost: 2500)</button>
-    <button id="g-button7">jeff the garbage collector (cost: 5000)</button>
-    <button id="g-button8">jeff dad (cost: 11000)</button>
-    <button id="g-button9">jeff mom (cost: 150000)</button>
-    <div id="garbage-counter">garbages: 0</div>
-    <div id="button2-counter">even more garbages: 0</div>
-    <div id="button3-counter">even even more garbages: 0</div>
-    <div id="button4-counter">too much garbages: 0</div>
-    <div id="button5-counter">garbage zeniths: 0</div>
-    <div id="button6-counter">garbage singularity: 0</div>
-    <div id="button7-counter">jeff the garbage collector: 0</div>
-    <div id="button8-counter">jeff dad: 0</div>
-    <div id="button9-counter">jeff mom: 0</div>
-  <div class="container">
-    <div id="red-dot"></div>
-    <p>points: <span id="score">0</span></p>
-  </div>
-  <script src="index.js"></script>
+  <main class="wrap">
+    <h1 class="title" id="mainTitle">Athens, France</h1>
+
+    <section class="content">
+      <div class="art-box" id="artBox" aria-live="polite">
+        <!-- default -->
+        <div class="art active" data-art="default">
+          <img src="art-1.png" alt="Default artwork" />
+        </div>
+
+        <div class="art" data-art="projects">
+          <img src="art-projects.png" alt="Projects" />
+        </div>
+
+        <div class="art" data-art="blog">
+          <img src="art-blog.png" alt="Blog" />
+        </div>
+
+        <div class="art" data-art="about">
+          <img src="art-about.png" alt="About" />
+        </div>
+      </div>
+
+      <nav class="menu" aria-label="Main">
+        <button data-target="projects">projects</button>
+        <button data-target="blog">blog</button>
+        <button data-target="about">about</button>
+      </nav>
+    </section>
+  </main>
+
+  <script>
+    const buttons = document.querySelectorAll(".menu button");
+    const arts = document.querySelectorAll(".art");
+    const defaultArt = document.querySelector('[data-art="default"]');
+
+    function showArt(key){
+      arts.forEach(a => a.classList.remove("active"));
+      const target = document.querySelector(`[data-art="${key}"]`);
+      (target || defaultArt).classList.add("active");
+    }
+
+    buttons.forEach(btn => {
+      const key = btn.dataset.target;
+      btn.addEventListener("mouseenter", () => showArt(key));
+      btn.addEventListener("focus", () => showArt(key));
+      btn.addEventListener("mouseleave", () => showArt("default"));
+      btn.addEventListener("blur", () => showArt("default"));
+    });
+  </script>
 </body>
 </html>
