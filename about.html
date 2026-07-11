@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+        --bg: #020202;
+        --fg: #f2f2f2;
+        --line: #8e8e8e;
+        --soft: #cfcfcf;
+        --glow: #ffffff;
+        }
+        body{
+        margin: 0;
+        min-height: 100vh;
+        background: var(--bg);
+        color: var(--fg);
+        justify-content: center;
+        padding: 40px 20px;
+        }
+        #wave {
+            color: white;
+            font-size: 4rem;
+        }
+        #about {
+            width: 700px;
+            font-size: 2rem;
+        }
+        #about a {
+            color: var(--soft);
+        }
+        .a {
+            color: var(--soft);
+        }
+    </style>
+</head>
+<body>
+    <h3><a href="index.html">back</a></h3>
+    <div id="wave">
+        <h1>Athens,⠀France</h1>
+    </div>
+    <div id="about">
+        <h5>hi! i'm a developer from Santa Catarina, Brazil.</h5>
+        <h5>i've been coding ever since 2020, more as a side thing. the things you see on this site are a culmination
+        of 6 years of very slow learning, although i picked up the pace these past few years. i have experience in a variety of languages,
+        although i'd say i'm more preficient in javascript as well as C#, Lua, Python, etc! recently i've been interested a lot in shaders
+        programming as well as various internet services, so most of my recent projects have been related to that, but i also have plenty
+        of experience in game development! 
+        from time to time, i like to review movies over at my <a href="https://letterboxd.com/stabbyv7">letterboxd</a>, and i like to mess around
+        with drawing too, as well as random miscellaneous stuff like rubik's cubes..
+        </h5>
+        <h5>if you want, you can find me over at:</h5>
+        <h6><a href="https://github.com/athens-france">github.com/athens-france</a></h6>
+        <h6><a href="https://youtube.com/@absoluteconfiguration">youtube.com/@absoluteconfiguration/</a></h6>
+    </div>
+    <script>
+        const waveText = document.getElementById("wave");
+        const words = waveText.textContent;
+
+        waveText.innerHTML = ""
+        const wordsArr = [...words];
+        wordsArr.forEach(char => {
+            const span = document.createElement("span");
+            span.textContent = char;
+            span.style.display = "inline-block";
+            span.style.textAlign = "center";
+            waveText.appendChild(span)
+        })
+
+        const letters = waveText.querySelectorAll("span");
+
+        function move(time) {
+            letters.forEach((letter, i) => {
+                const offset = i * 0.3;
+                const y = Math.sin(time / 300 + offset) * 4;
+                letter.style.transform = `translateY(${y}px)`;
+            });
+            requestAnimationFrame(move);
+        }
+    requestAnimationFrame(move);
+    </script>
+</body>
+</html>
